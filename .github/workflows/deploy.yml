@@ -26,11 +26,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Pages muss einmalig unter Settings -> Pages auf «GitHub Actions»
+      # gestellt werden; der Standard-GITHUB_TOKEN darf das nicht selbst tun.
       - uses: actions/configure-pages@v5
-        # Aktiviert GitHub Pages beim ersten Lauf selbst, damit die Quelle
-        # nicht von Hand auf «GitHub Actions» gestellt werden muss.
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
