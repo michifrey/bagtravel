@@ -429,10 +429,10 @@ export const stationen: Station[] = [
           'defences.',
       },
     ],
-    bild: 'magadinoebene.jpg',
+    bild: 'sasso-corbaro-bau.jpg',
     bildnachweis: {
-      de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
-      en: 'Across the Magadino plain towards Lake Maggiore',
+      de: 'Die quadratische Anlage auf dem Felsgrat',
+      en: 'The square fortress on the rocky ridge',
     },
     lat: 46.1856,
     lng: 9.0283,
@@ -499,6 +499,20 @@ export const galerie: Galeriebild[] = [
     nachweis: {
       de: 'Der Wehrgang der Murata',
       en: 'The Murata rampart walk',
+    },
+  },
+  {
+    datei: 'magadinoebene.jpg',
+    nachweis: {
+      de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
+      en: 'Across the Magadino plain towards Lake Maggiore',
+    },
+  },
+  {
+    datei: 'weg-baeume.jpg',
+    nachweis: {
+      de: 'Unterwegs auf dem gepflasterten Weg',
+      en: 'On the cobbled path',
     },
   },
   {
