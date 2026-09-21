@@ -451,7 +451,11 @@ export const stationen: Station[] = [
           'tables in the shade, simple food, no reason to hurry.',
       },
     ],
-    bild: '',
+    bild: 'grotto-rippli.jpg',
+    bildnachweis: {
+      de: 'Spareribs im Grotto',
+      en: 'Spare ribs at the grotto',
+    },
   },
   {
     name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
@@ -499,6 +503,27 @@ export const galerie: Galeriebild[] = [
     nachweis: {
       de: 'Der Wehrgang der Murata',
       en: 'The Murata rampart walk',
+    },
+  },
+  {
+    datei: 'grotto-teller.jpg',
+    nachweis: {
+      de: 'Der Teller, auf den alle gewartet haben',
+      en: 'The plate everyone had been waiting for',
+    },
+  },
+  {
+    datei: 'treppe-von-oben.jpg',
+    nachweis: {
+      de: 'Die Treppe von oben, die Stadt schon wieder nah',
+      en: 'The steps from above, the town close again',
+    },
+  },
+  {
+    datei: 'wiese-farn.jpg',
+    nachweis: {
+      de: 'Wiese und Farn am Hang, dahinter die Berge',
+      en: 'Meadow and ferns on the slope, mountains behind',
     },
   },
   {
