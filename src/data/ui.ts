@@ -12,7 +12,6 @@ export const ui = {
     galerie: { de: 'Bilder', en: 'Photos' },
     karte: { de: 'Karte', en: 'Map' },
     infos: { de: 'Infos', en: 'Info' },
-    packliste: { de: 'Packliste', en: 'Packing' },
     teilnehmende: { de: 'Wer mitkommt', en: "Who's Coming" },
     kontakte: { de: 'Kontakte', en: 'Contacts' },
     bereiche: { de: 'Seitenabschnitte', en: 'Page sections' },
@@ -25,7 +24,6 @@ export const ui = {
     galerie: { de: 'Bilder vom Tag', en: 'Photos from the Day' },
     karte: { de: 'Karte', en: 'Map' },
     infos: { de: 'Gut zu wissen', en: 'Good to Know' },
-    packliste: { de: 'Packliste', en: 'Packing List' },
     teilnehmende: { de: 'Wer mitkommt', en: "Who's Coming" },
     kontakte: { de: 'Kontakte', en: 'Contacts' },
   },
@@ -51,17 +49,10 @@ export const ui = {
 
   karte: {
     hinweis: {
-      de: 'Die Standorte sind ungefähr gesetzt – zum Orientieren reicht es, für die genaue Route gilt die Wanderkarte.',
-      en: 'The markers are approximate – fine for orientation; for the exact route use the hiking map.',
+      de: 'Die Wegpunkte sind in der Reihenfolge des Tages nummeriert. Die gestrichelte Linie verbindet sie nur – sie zeigt nicht den tatsächlichen Wegverlauf. Die Standorte sind ungefähr gesetzt.',
+      en: 'The waypoints are numbered in the order we walked them. The dashed line merely connects them – it does not show the actual trail. Positions are approximate.',
     },
     beschriftung: { de: 'Karte der drei Burgen', en: 'Map of the three castles' },
-  },
-
-  packliste: {
-    hinweis: {
-      de: 'Abgehakte Einträge werden nur in deinem Browser gespeichert.',
-      en: 'Ticked items are stored in your browser only.',
-    },
   },
 
   sprache: {
@@ -75,7 +66,7 @@ export const ui = {
     en: 'Bergauer AG – Trip',
   },
   beschreibung: {
-    de: 'Reiseprogramm, Infos und Packliste für die Reise der Bergauer AG.',
-    en: 'Itinerary, information and packing list for the Bergauer AG trip.',
+    de: 'Programm, Stationen und Bilder vom Wandertag der Bergauer AG.',
+    en: 'Itinerary, stops and photos from the Bergauer AG hiking day.',
   },
 } satisfies Record<string, Text | Record<string, Text>>

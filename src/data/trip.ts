@@ -185,6 +185,8 @@ export const wanderung: Wanderdaten = {
 export const karte: Karte = {
   zentrum: { lat: 46.1905, lng: 9.0235 },
   zoom: 14,
+  // Reihenfolge = Reihenfolge des Tages. Sie bestimmt die Nummern der Marker
+  // und den Verlauf der verbindenden Linie.
   orte: [
     {
       name: { de: 'Bahnhof Bellinzona', en: 'Bellinzona station' },
@@ -206,15 +208,6 @@ export const karte: Karte = {
       lng: 9.0186,
     },
     {
-      name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
-      beschreibung: {
-        de: 'Mittlere Burg auf dem Felssporn über der Stadt.',
-        en: 'The middle castle, on the rocky spur above the town.',
-      },
-      lat: 46.1912,
-      lng: 9.0248,
-    },
-    {
       name: { de: 'Castello di Sasso Corbaro', en: 'Castello di Sasso Corbaro' },
       beschreibung: {
         de: 'Die höchstgelegene der drei Burgen, rund 230 m über der Stadt.',
@@ -222,6 +215,15 @@ export const karte: Karte = {
       },
       lat: 46.1856,
       lng: 9.0283,
+    },
+    {
+      name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
+      beschreibung: {
+        de: 'Mittlere Burg auf dem Felssporn über der Stadt.',
+        en: 'The middle castle, on the rocky spur above the town.',
+      },
+      lat: 46.1912,
+      lng: 9.0248,
     },
   ],
 }
@@ -577,31 +579,6 @@ export const infoBloecke: Infoblock[] = [
         en: 'Afternoon: please bring your own snack and an extra drink.',
       },
     ],
-  },
-]
-
-export const packliste: Text[] = [
-  { de: 'Wanderschuhe mit Profil', en: 'Hiking boots with grip' },
-  { de: 'Wetterfeste Jacke', en: 'Weatherproof jacket' },
-  {
-    de: 'Sonnenschutz: Kappe, Sonnencreme, Sonnenbrille',
-    en: 'Sun protection: cap, sunscreen, sunglasses',
-  },
-  {
-    de: 'Nachmittags-Snack und zusätzliches Getränk',
-    en: 'Afternoon snack and an extra drink',
-  },
-  { de: 'Trinkflasche', en: 'Water bottle' },
-  { de: 'Rucksack', en: 'Backpack' },
-  { de: 'Halbtax / GA bzw. Billett', en: 'Rail pass or ticket' },
-  {
-    de: 'Bargeld oder Karte fürs Mittagessen',
-    en: 'Cash or card for lunch',
-  },
-  { de: 'Handy und Powerbank', en: 'Phone and power bank' },
-  {
-    de: 'Pflaster und persönliche Medikamente',
-    en: 'Plasters and personal medication',
   },
 ]
 

@@ -5,7 +5,6 @@ import Infos from './components/Infos'
 import Karte from './components/Karte'
 import Kontakte from './components/Kontakte'
 import Nav from './components/Nav'
-import Packliste from './components/Packliste'
 import Programm from './components/Programm'
 import Stationen from './components/Stationen'
 import Teilnehmende from './components/Teilnehmende'
@@ -37,7 +36,6 @@ function Seite() {
         <Galerie />
         <Karte />
         <Infos />
-        <Packliste />
         <Teilnehmende />
         <Kontakte />
       </main>

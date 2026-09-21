@@ -577,12 +577,24 @@ a {
 }
 
 .marker {
-  display: block;
-  height: 18px;
-  width: 18px;
-  border: 3px solid #fffdf8;
+  display: grid;
+  place-items: center;
+  height: 26px;
+  width: 26px;
+  border: 2px solid #fffdf8;
   border-radius: 50%;
   box-shadow: 0 1px 6px rgb(0 0 0 / 45%);
+  color: #fffdf8;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+/* Die Linie verbindet die Wegpunkte; sie ist kein Wegverlauf. */
+.route {
+  stroke: var(--terra);
 }
 
 .marker--burg {
@@ -609,47 +621,6 @@ a {
 .leaflet-container {
   background: var(--flaeche);
   font: inherit;
-}
-
-/* ==========================================================================
-   Packliste
-   ========================================================================== */
-
-.packliste {
-  display: grid;
-  gap: 0;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.packliste__eintrag {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 0.7rem 0.5rem 0.7rem 0;
-  border-bottom: 1px solid var(--linie);
-  cursor: pointer;
-  transition: color 0.15s ease;
-}
-
-.packliste__eintrag:hover {
-  color: var(--terra);
-}
-
-.packliste__eintrag input {
-  height: 1.15rem;
-  width: 1.15rem;
-  flex-shrink: 0;
-  margin: 0.2rem 0 0;
-  accent-color: var(--wald);
-}
-
-.packliste__eintrag input:checked + span {
-  color: var(--tinte-leise);
-  text-decoration: line-through;
-  text-decoration-thickness: 1px;
 }
 
 /* ==========================================================================

@@ -8,24 +8,26 @@ import Section from './Section'
 
 /**
  * Marker als divIcon statt Leaflets Standard-PNG: so muss kein Bildpfad
- * durch den Bundler aufgelöst werden und die Farben folgen dem Farbschema.
+ * durch den Bundler aufgelöst werden, die Farben folgen dem Farbschema und
+ * die Nummer des Wegpunkts steht direkt drin.
  */
-function markerIcon(istStart: boolean) {
+function markerIcon(nummer: number, istStart: boolean) {
   return L.divIcon({
     className: '',
-    html: `<span class="marker ${istStart ? 'marker--start' : 'marker--burg'}"></span>`,
-    iconSize: [18, 18],
-    iconAnchor: [9, 9],
-    popupAnchor: [0, -10],
+    html: `<span class="marker ${istStart ? 'marker--start' : 'marker--burg'}">${nummer}</span>`,
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+    popupAnchor: [0, -14],
   })
 }
 
 /** Popup-Inhalt als DOM statt HTML-String – so kann nichts aus den Daten ausbrechen. */
-function popupInhalt(name: string, beschreibung?: string) {
+function popupInhalt(nummer: number, name: string, beschreibung?: string) {
   const wurzel = document.createElement('div')
-  const stark = document.createElement('strong')
-  stark.textContent = name
-  wurzel.append(stark)
+
+  const kopf = document.createElement('strong')
+  kopf.textContent = `${nummer}. ${name}`
+  wurzel.append(kopf)
 
   if (beschreibung) {
     wurzel.append(document.createElement('br'))
@@ -53,18 +55,27 @@ export default function Karte() {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     }).addTo(map)
 
-    const marker = karte.orte.map((ort) =>
-      L.marker([ort.lat, ort.lng], { icon: markerIcon(ort.istStart ?? false) })
+    const punkte: L.LatLngExpression[] = karte.orte.map((ort) => [ort.lat, ort.lng])
+
+    // Gestrichelt, weil sie die Wegpunkte nur verbindet und nicht den Weg zeigt.
+    const linie = L.polyline(punkte, {
+      className: 'route',
+      weight: 2,
+      dashArray: '6 7',
+      opacity: 0.9,
+    }).addTo(map)
+
+    const marker = karte.orte.map((ort, i) =>
+      L.marker([ort.lat, ort.lng], { icon: markerIcon(i + 1, ort.istStart ?? false) })
         .addTo(map)
         .bindPopup(
-          popupInhalt(ort.name[sprache], ort.beschreibung?.[sprache]),
+          popupInhalt(i + 1, ort.name[sprache], ort.beschreibung?.[sprache]),
         ),
     )
 
-    // Alle Orte ins Bild holen, egal wie das Fenster gerade aussieht.
-    if (marker.length > 0) {
-      map.fitBounds(L.featureGroup(marker).getBounds(), { padding: [40, 40] })
-    }
+    // Alle Wegpunkte ins Bild holen, egal wie das Fenster gerade aussieht.
+    const gruppe = L.featureGroup([linie, ...marker])
+    map.fitBounds(gruppe.getBounds(), { padding: [45, 45] })
 
     return () => {
       map.remove()

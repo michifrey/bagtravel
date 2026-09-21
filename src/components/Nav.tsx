@@ -10,7 +10,6 @@ const eintraege = [
   { id: 'galerie', label: ui.nav.galerie },
   { id: 'karte', label: ui.nav.karte },
   { id: 'infos', label: ui.nav.infos },
-  { id: 'packliste', label: ui.nav.packliste },
   ...(teilnehmende.length > 0
     ? [{ id: 'teilnehmende', label: ui.nav.teilnehmende }]
     : []),
