@@ -34,7 +34,7 @@ export default function Packliste() {
     )
 
   return (
-    <Section id="packliste" titel="Packliste">
+    <Section id="packliste" nummer="05" titel="Packliste">
       <p className="hinweis">
         Abgehakte Einträge werden nur in deinem Browser gespeichert.
       </p>

@@ -10,7 +10,7 @@ const kennzahlen = [
 
 export default function Wanderung() {
   return (
-    <Section id="wanderung" titel="Die Wanderung">
+    <Section id="wanderung" nummer="01" titel="Die Wanderung">
       <p className="lead">{wanderung.beschreibung}</p>
 
       <dl className="kennzahlen">
@@ -22,7 +22,7 @@ export default function Wanderung() {
         ))}
       </dl>
 
-      <p className="hinweis hinweis--block">{wanderung.hinweis}</p>
+      <p className="notiz">{wanderung.hinweis}</p>
 
       {wanderung.hoehepunkte.length > 0 && (
         <ul className="hoehepunkte">

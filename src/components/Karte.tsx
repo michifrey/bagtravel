@@ -54,12 +54,12 @@ export default function Karte() {
   }, [])
 
   return (
-    <Section id="karte" titel="Karte">
+    <Section id="karte" nummer="03" titel="Karte">
       <p className="hinweis hinweis--block">
         Die Standorte sind ungefähr gesetzt – zum Orientieren reicht es, für die
         genaue Route gilt die Wanderkarte.
       </p>
-      <div ref={container} className="karte" role="application" aria-label="Karte der drei Burgen" />
+      <div ref={container} className="karte-flaeche" role="application" aria-label="Karte der drei Burgen" />
     </Section>
   )
 }

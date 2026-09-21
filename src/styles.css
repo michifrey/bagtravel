@@ -1,28 +1,42 @@
+/* ==========================================================================
+   Bergauer AG – Reise-Website
+   Gestaltung: Reisemagazin. Grosse Display-Serife (Fraunces) gegen eine
+   ruhige Grotesk (Inter), warmes Papier, Tessiner Farbklima.
+   ========================================================================== */
+
 :root {
-  --fg: #1b2430;
-  --fg-leise: #5a6775;
-  --bg: #f7f5f1;
-  --flaeche: #ffffff;
-  --rand: #e2ddd4;
-  --akzent: #2f6d5a;
-  --akzent-leise: #e6efe9;
-  --schatten: 0 1px 2px rgb(27 36 48 / 6%), 0 8px 24px rgb(27 36 48 / 6%);
-  --radius: 14px;
-  --breite: 62rem;
+  /* Papier & Tinte */
+  --papier: #faf6ef;
+  --flaeche: #fffdfa;
+  --tinte: #211d18;
+  --tinte-leise: #6d6358;
+  --linie: #e4dacb;
+
+  /* Akzente: Wald, Terrakotta, Sonne */
+  --wald: #1f4d3d;
+  --wald-leise: #e7efe9;
+  --terra: #b9553a;
+  --sonne: #c98a2e;
+
+  --radius: 4px;
+  --spalte: 68rem;
+  --text: 40rem;
 
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --fg: #e9eaec;
-    --fg-leise: #9aa4b0;
-    --bg: #14181d;
-    --flaeche: #1c2229;
-    --rand: #2b333c;
-    --akzent: #6fb79c;
-    --akzent-leise: #1f2e29;
-    --schatten: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
+    --papier: #14120f;
+    --flaeche: #1c1915;
+    --tinte: #f1ebe1;
+    --tinte-leise: #a1968a;
+    --linie: #2f2a23;
+
+    --wald: #82bda4;
+    --wald-leise: #1c2b25;
+    --terra: #dd8464;
+    --sonne: #dfae5d;
   }
 }
 
@@ -34,94 +48,224 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--papier);
+  color: var(--tinte);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+    sans-serif;
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  color: var(--akzent);
+  color: var(--terra);
+  text-underline-offset: 3px;
 }
 
-/* --- Hero ---------------------------------------------------------------- */
+/* Gemeinsames Spaltenmass */
+.hero__inner,
+.nav__list,
+.inhalt,
+.hero__nachweis {
+  margin-inline: auto;
+  max-width: var(--spalte);
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
 
 .hero {
-  background: linear-gradient(160deg, var(--akzent-leise), var(--bg) 70%);
-  border-bottom: 1px solid var(--rand);
-  padding: clamp(3rem, 9vw, 6rem) 1rem clamp(2.5rem, 6vw, 4rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(92svh, 54rem);
+  padding-block: clamp(4rem, 12vw, 8rem) clamp(1.5rem, 4vw, 2.5rem);
 }
 
-.hero__inner {
-  margin: 0 auto;
-  max-width: var(--breite);
+.hero__bild {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* Verlauf statt Flächendeckel: oben bleibt das Bild offen, unten trägt es Text. */
+.hero--bild::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgb(18 26 22 / 30%) 0%,
+    rgb(18 26 22 / 20%) 28%,
+    rgb(18 26 22 / 72%) 72%,
+    rgb(14 20 17 / 92%) 100%
+  );
+}
+
+/* Ohne Bild trägt ein ruhiger Farbverlauf. */
+.hero:not(.hero--bild) {
+  min-height: auto;
+  background: linear-gradient(165deg, var(--wald-leise), var(--papier) 72%);
+  border-bottom: 1px solid var(--linie);
 }
 
 .hero__org {
-  margin: 0;
-  color: var(--akzent);
-  font-size: 0.8rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.hero__title {
-  margin: 0.4rem 0 0;
-  font-size: clamp(2.1rem, 6vw, 3.4rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+.hero--bild .hero__org {
+  color: #eadfd0;
 }
 
-.hero__subtitle {
-  margin: 0.6rem 0 0;
-  color: var(--fg-leise);
-  font-size: 1.05rem;
+.hero:not(.hero--bild) .hero__org {
+  color: var(--wald);
+}
+
+.hero__titel {
+  margin: 0;
+  max-width: 18ch;
+  font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
+  font-size: clamp(2.8rem, 9vw, 6.5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.hero--bild .hero__titel {
+  color: #fffdf8;
+  text-shadow: 0 2px 30px rgb(10 16 13 / 45%);
+}
+
+.hero__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.75rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero--bild .hero__meta {
+  color: #ded2c2;
+}
+
+.hero:not(.hero--bild) .hero__meta {
+  color: var(--tinte-leise);
+}
+
+.hero__punkt {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.55;
 }
 
 .hero__intro {
-  margin: 1.4rem 0 0;
-  max-width: 42rem;
+  margin: 1.75rem 0 0;
+  max-width: var(--text);
+  font-size: 1.08rem;
+}
+
+.hero--bild .hero__intro {
+  color: #ece3d8;
+}
+
+.hero__nachweis {
+  /* Als Flex-Kind würde das <p> sonst schrumpfen und margin-inline:auto
+     zentriert es – es soll aber an der Spaltenkante stehen wie alles andere. */
+  width: 100%;
+  margin-block: 2.5rem 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.hero--bild .hero__nachweis {
+  color: rgb(255 255 255 / 45%);
 }
 
 .countdown {
-  display: inline-block;
-  margin: 1.6rem 0 0;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--rand);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
+  padding: 0.6rem 1.15rem;
   border-radius: 999px;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+}
+
+.hero--bild .countdown {
+  border: 1px solid rgb(255 255 255 / 28%);
+  background: rgb(255 255 255 / 10%);
+  color: #fffdf8;
+  backdrop-filter: blur(6px);
+}
+
+.hero:not(.hero--bild) .countdown {
+  border: 1px solid var(--linie);
   background: var(--flaeche);
-  font-size: 0.95rem;
 }
 
 .countdown strong {
-  color: var(--akzent);
-  font-size: 1.15rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-/* --- Navigation ---------------------------------------------------------- */
+.hero--bild .countdown strong {
+  color: var(--sonne);
+}
+
+.hero:not(.hero--bild) .countdown strong {
+  color: var(--terra);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
 
 .nav {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid var(--rand);
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--linie);
+  background: color-mix(in srgb, var(--papier) 85%, transparent);
+  backdrop-filter: blur(10px);
 }
 
 .nav__list {
   display: flex;
-  gap: 1.4rem;
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
-  max-width: var(--breite);
+  gap: 1.75rem;
+  padding-block: 0.9rem;
   list-style: none;
   overflow-x: auto;
   scrollbar-width: none;
@@ -132,84 +276,115 @@ a {
 }
 
 .nav__list a {
-  color: var(--fg-leise);
-  font-size: 0.92rem;
+  color: var(--tinte-leise);
+  font-size: 0.78rem;
   font-weight: 500;
+  letter-spacing: 0.12em;
   text-decoration: none;
+  text-transform: uppercase;
   white-space: nowrap;
+  transition: color 0.15s ease;
 }
 
-.nav__list a:hover {
-  color: var(--akzent);
+.nav__list a:hover,
+.nav__list a:focus-visible {
+  color: var(--terra);
 }
 
-/* --- Layout -------------------------------------------------------------- */
-
-.inhalt {
-  margin: 0 auto;
-  padding: 0 1rem;
-  max-width: var(--breite);
-}
+/* ==========================================================================
+   Sektionen
+   ========================================================================== */
 
 .section {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
-  border-bottom: 1px solid var(--rand);
-  scroll-margin-top: 4rem;
+  padding-block: clamp(3.5rem, 9vw, 6.5rem);
+  border-bottom: 1px solid var(--linie);
+  scroll-margin-top: 3.5rem;
 }
 
 .section:last-child {
   border-bottom: none;
 }
 
-.section__title {
-  margin: 0 0 1.5rem;
-  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+.section__kopf {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.section__nummer {
+  color: var(--terra);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+.section__titel {
+  margin: 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .lead {
-  margin: 0 0 1.8rem;
-  max-width: 44rem;
-  color: var(--fg-leise);
+  margin: 0 0 2rem;
+  max-width: var(--text);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+.notiz {
+  margin: 0 0 1.75rem;
+  max-width: var(--text);
+  padding-left: 1rem;
+  border-left: 2px solid var(--sonne);
+  color: var(--tinte-leise);
+  font-size: 0.95rem;
 }
 
 .hinweis {
-  margin: -0.8rem 0 1.4rem;
-  color: var(--fg-leise);
-  font-size: 0.9rem;
+  margin: -0.5rem 0 1.5rem;
+  color: var(--tinte-leise);
+  font-size: 0.88rem;
 }
 
-/* --- Kennzahlen der Wanderung -------------------------------------------- */
+/* ==========================================================================
+   Kennzahlen
+   ========================================================================== */
 
 .kennzahlen {
   display: grid;
-  gap: 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-  margin: 0 0 1.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  margin: 0 0 2rem;
+  border-top: 1px solid var(--linie);
 }
 
 .kennzahl {
-  padding: 1rem 1.1rem;
-  border: 1px solid var(--rand);
-  border-radius: var(--radius);
-  background: var(--flaeche);
+  padding: 1.15rem 1.25rem 1.25rem 0;
+  border-bottom: 1px solid var(--linie);
 }
 
 .kennzahl__label {
-  color: var(--fg-leise);
-  font-size: 0.78rem;
+  color: var(--tinte-leise);
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .kennzahl__wert {
-  margin: 0.3rem 0 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin: 0.35rem 0 0;
+  color: var(--wald);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.3rem);
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .hoehepunkte {
@@ -222,123 +397,219 @@ a {
 }
 
 .hoehepunkte li {
-  padding: 0.35rem 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--linie);
   border-radius: 999px;
-  background: var(--akzent-leise);
-  color: var(--akzent);
-  font-size: 0.9rem;
+  background: var(--wald-leise);
+  color: var(--wald);
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
-/* --- Programm ------------------------------------------------------------ */
+/* ==========================================================================
+   Programm als Zeitachse
+   ========================================================================== */
 
 .tage,
-.punkte {
+.zeitachse {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .tag + .tag {
-  margin-top: 2.5rem;
+  margin-top: 3rem;
 }
 
 .tag__kopf {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.75rem;
 }
 
 .tag__datum {
-  color: var(--akzent);
-  font-size: 0.82rem;
+  color: var(--terra);
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .tag__titel {
-  margin: 0.2rem 0 0;
-  font-size: 1.25rem;
+  margin: 0.35rem 0 0;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.5rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Die Linie läuft durch alle Punkte; jeder Punkt setzt seinen eigenen Knoten. */
+.zeitachse {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.zeitachse::before {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 0;
+  width: 1px;
+  background: var(--linie);
 }
 
 .punkt {
+  position: relative;
   display: grid;
-  gap: 0.25rem 1.25rem;
-  grid-template-columns: 6.5rem 1fr;
-  padding: 1rem 0;
-  border-top: 1px solid var(--rand);
+  grid-template-columns: 6rem 1fr;
+  gap: 0.2rem 1.5rem;
+  padding-block: 1.1rem;
+}
+
+.punkt::before {
+  content: '';
+  position: absolute;
+  top: 1.55rem;
+  left: -1.5rem;
+  height: 7px;
+  width: 7px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--terra);
+}
+
+.punkt + .punkt {
+  border-top: 1px solid var(--linie);
 }
 
 .punkt__zeit {
-  color: var(--fg-leise);
-  font-size: 0.95rem;
+  padding-top: 0.15rem;
+  color: var(--tinte-leise);
+  font-size: 0.88rem;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-  padding-top: 0.1rem;
+  letter-spacing: 0.03em;
 }
 
 .punkt__titel {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   font-weight: 600;
+  letter-spacing: -0.005em;
 }
 
 .punkt__ort {
-  margin: 0.15rem 0 0;
-  color: var(--akzent);
-  font-size: 0.92rem;
+  margin: 0.2rem 0 0;
+  color: var(--wald);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .punkt__beschreibung {
-  margin: 0.35rem 0 0;
-  color: var(--fg-leise);
+  margin: 0.4rem 0 0;
+  max-width: var(--text);
+  color: var(--tinte-leise);
   font-size: 0.95rem;
 }
 
-@media (max-width: 34rem) {
+@media (max-width: 38rem) {
   .punkt {
     grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .punkt::before {
+    top: 1.5rem;
   }
 }
 
-/* --- Infokarten ---------------------------------------------------------- */
+/* ==========================================================================
+   Infokarten
+   ========================================================================== */
 
 .karten {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  border: 1px solid var(--linie);
+  background: var(--linie);
 }
 
 .karte {
-  padding: 1.4rem;
-  border: 1px solid var(--rand);
-  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem;
   background: var(--flaeche);
-  box-shadow: var(--schatten);
 }
 
 .karte__titel {
-  margin: 0 0 0.7rem;
-  font-size: 1.05rem;
+  margin: 0 0 0.9rem;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.15rem;
   font-weight: 600;
 }
 
 .karte__text {
-  margin: 0 0 0.6rem;
-  color: var(--fg-leise);
-  font-size: 0.95rem;
+  margin: 0 0 0.75rem;
+  color: var(--tinte-leise);
+  font-size: 0.93rem;
 }
 
 .karte__text:last-child {
   margin-bottom: 0;
 }
 
-/* --- Packliste ----------------------------------------------------------- */
+/* ==========================================================================
+   Karte
+   ========================================================================== */
+
+.karte-flaeche {
+  height: clamp(20rem, 55vw, 30rem);
+  border: 1px solid var(--linie);
+  background: var(--flaeche);
+  overflow: hidden;
+}
+
+.marker {
+  display: block;
+  height: 18px;
+  width: 18px;
+  border: 3px solid #fffdf8;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 45%);
+}
+
+.marker--burg {
+  background: var(--terra);
+}
+
+.marker--start {
+  background: var(--wald);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  border-radius: var(--radius);
+  background: var(--flaeche);
+  color: var(--tinte);
+}
+
+.leaflet-popup-content {
+  margin: 0.85rem 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.leaflet-container {
+  background: var(--flaeche);
+  font: inherit;
+}
+
+/* ==========================================================================
+   Packliste
+   ========================================================================== */
 
 .packliste {
   display: grid;
-  gap: 0.25rem;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 0;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
   margin: 0;
   padding: 0;
   list-style: none;
@@ -346,38 +617,45 @@ a {
 
 .packliste__eintrag {
   display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 0.55rem 0.7rem;
-  border-radius: 10px;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.7rem 0.5rem 0.7rem 0;
+  border-bottom: 1px solid var(--linie);
   cursor: pointer;
+  transition: color 0.15s ease;
 }
 
 .packliste__eintrag:hover {
-  background: var(--flaeche);
+  color: var(--terra);
 }
 
 .packliste__eintrag input {
-  accent-color: var(--akzent);
-  height: 1.1rem;
-  width: 1.1rem;
+  height: 1.15rem;
+  width: 1.15rem;
   flex-shrink: 0;
+  margin: 0.2rem 0 0;
+  accent-color: var(--wald);
 }
 
 .packliste__eintrag input:checked + span {
-  color: var(--fg-leise);
+  color: var(--tinte-leise);
   text-decoration: line-through;
+  text-decoration-thickness: 1px;
 }
 
-/* --- Personen & Kontakte ------------------------------------------------- */
+/* ==========================================================================
+   Personen & Kontakte
+   ========================================================================== */
 
 .personen,
 .kontakte {
   display: grid;
-  gap: 0.6rem;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   margin: 0;
   padding: 0;
+  border: 1px solid var(--linie);
+  background: var(--linie);
   list-style: none;
 }
 
@@ -385,9 +663,7 @@ a {
 .kontakt {
   display: flex;
   flex-direction: column;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid var(--rand);
-  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
   background: var(--flaeche);
 }
 
@@ -398,135 +674,29 @@ a {
 
 .person__rolle,
 .kontakt__rolle {
-  color: var(--fg-leise);
-  font-size: 0.88rem;
+  color: var(--tinte-leise);
+  font-size: 0.85rem;
 }
 
 .kontakt a {
-  font-size: 0.92rem;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
 }
 
-/* --- Fuss ---------------------------------------------------------------- */
+/* ==========================================================================
+   Fuss
+   ========================================================================== */
 
 .fuss {
-  padding: 2.5rem 1rem 3.5rem;
-  border-top: 1px solid var(--rand);
-  color: var(--fg-leise);
-  font-size: 0.88rem;
+  padding: clamp(3rem, 7vw, 4.5rem) 1rem;
+  border-top: 1px solid var(--linie);
   text-align: center;
 }
 
 .fuss p {
   margin: 0;
-}
-
-.hinweis--block {
-  margin: 0 0 1.4rem;
-  max-width: 44rem;
-}
-
-/* --- Hero mit Bild ------------------------------------------------------- */
-
-.hero--bild {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-}
-
-.hero__bild {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-position: center 40%;
-  background-size: cover;
-}
-
-/* Abdunkeln, damit die Schrift auf jedem Bildausschnitt lesbar bleibt. */
-.hero--bild::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(
-    180deg,
-    rgb(12 22 18 / 62%) 0%,
-    rgb(12 22 18 / 72%) 100%
-  );
-}
-
-.hero--bild .hero__title,
-.hero--bild .hero__intro {
-  color: #fff;
-}
-
-.hero--bild .hero__org {
-  color: #a8dcc6;
-}
-
-.hero--bild .hero__subtitle {
-  color: #d6e4dd;
-}
-
-.hero--bild .countdown {
-  border-color: rgb(255 255 255 / 30%);
-  background: rgb(255 255 255 / 12%);
-  color: #fff;
-  backdrop-filter: blur(4px);
-}
-
-.hero--bild .countdown strong {
-  color: #a8dcc6;
-}
-
-.hero__nachweis {
-  position: relative;
-  margin: 2rem auto 0;
-  max-width: var(--breite);
-  color: rgb(255 255 255 / 65%);
-  font-size: 0.75rem;
-}
-
-/* --- Karte --------------------------------------------------------------- */
-
-.karte {
-  height: clamp(20rem, 55vw, 28rem);
-  border: 1px solid var(--rand);
-  border-radius: var(--radius);
-  background: var(--flaeche);
-  overflow: hidden;
-}
-
-.marker {
-  display: block;
-  height: 18px;
-  width: 18px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
-}
-
-.marker--burg {
-  background: #b4472f;
-}
-
-.marker--start {
-  background: var(--akzent);
-}
-
-/* Leaflet-Popups ans Farbschema angleichen. */
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
-  background: var(--flaeche);
-  color: var(--fg);
-}
-
-.leaflet-popup-content {
-  margin: 0.8rem 1rem;
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-.leaflet-container {
-  background: var(--flaeche);
-  font: inherit;
+  color: var(--tinte-leise);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }

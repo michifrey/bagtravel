@@ -1,4 +1,4 @@
-import { trip } from '../data/trip'
+import { trip, wanderung } from '../data/trip'
 import Countdown from './Countdown'
 
 export default function Hero() {
@@ -9,22 +9,33 @@ export default function Hero() {
   return (
     <header className={`hero ${hatBild ? 'hero--bild' : ''}`}>
       {hatBild && (
-        <div
+        <img
           className="hero__bild"
-          style={{ backgroundImage: `url(${bildUrl})` }}
-          role="img"
-          aria-label={trip.bildnachweis}
+          src={bildUrl}
+          alt={trip.bildnachweis}
+          fetchPriority="high"
+          decoding="async"
         />
       )}
+
       <div className="hero__inner">
         <p className="hero__org">{trip.organisation}</p>
-        <h1 className="hero__title">{trip.titel}</h1>
-        <p className="hero__subtitle">
-          {trip.untertitel} · {trip.zeitraum}
-        </p>
+        <h1 className="hero__titel">{trip.titel}</h1>
+
+        <div className="hero__meta">
+          <span>{trip.untertitel}</span>
+          <span className="hero__punkt" aria-hidden="true" />
+          <span>{trip.zeitraum}</span>
+          <span className="hero__punkt" aria-hidden="true" />
+          <span>
+            {wanderung.distanz} · {wanderung.aufstieg}
+          </span>
+        </div>
+
         <p className="hero__intro">{trip.einleitung}</p>
         <Countdown abreiseDatum={trip.abreiseDatum} />
       </div>
+
       {hatBild && <p className="hero__nachweis">{trip.bildnachweis}</p>}
     </header>
   )
