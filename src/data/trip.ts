@@ -156,21 +156,20 @@ export const wanderung: Wanderdaten = {
   beschreibung: {
     de:
       'Wanderung von Bellinzona zu den drei mittelalterlichen Burgen ' +
-      'Castelgrande, Ruinen Prada und Castello di Sasso Corbaro – und wenn die ' +
-      'Zeit noch reicht zum Castello di Montebello. Danach zurück zum ' +
-      'Ausgangspunkt.',
+      'Castelgrande, Ruinen Prada, Castello di Sasso Corbaro und Castello di ' +
+      'Montebello. Danach zurück zum Ausgangspunkt.',
     en:
       'A hike from Bellinzona to the three medieval castles Castelgrande, the ' +
-      'Prada ruins and Castello di Sasso Corbaro – and, if time allows, ' +
-      'Castello di Montebello. Then back to where we started.',
+      'Prada ruins, Castello di Sasso Corbaro and Castello di Montebello. ' +
+      'Then back to where we started.',
   },
   hoehepunkte: [
     { de: 'Castelgrande', en: 'Castelgrande' },
     { de: 'Ruinen Prada', en: 'Prada ruins' },
     { de: 'Castello di Sasso Corbaro', en: 'Castello di Sasso Corbaro' },
     {
-      de: 'Castello di Montebello (falls die Zeit reicht)',
-      en: 'Castello di Montebello (if time allows)',
+      de: 'Castello di Montebello',
+      en: 'Castello di Montebello',
     },
   ],
   hinweis: {
@@ -266,12 +265,11 @@ export const reisetage: Reisetag[] = [
         },
         beschreibung: {
           de:
-            'Castelgrande, Ruinen Prada und Castello di Sasso Corbaro, bei ' +
-            'genügend Zeit auch Castello di Montebello – und zurück zum ' +
-            'Ausgangspunkt.',
+            'Castelgrande, Ruinen Prada, Castello di Sasso Corbaro und ' +
+            'Castello di Montebello – und zurück zum Ausgangspunkt.',
           en:
-            'Castelgrande, the Prada ruins and Castello di Sasso Corbaro, plus ' +
-            'Castello di Montebello if there is time – and back to the start.',
+            'Castelgrande, the Prada ruins, Castello di Sasso Corbaro and ' +
+            'Castello di Montebello – and back to the start.',
         },
       },
       {
@@ -439,39 +437,20 @@ export const stationen: Station[] = [
     lng: 9.0283,
   },
   {
-    name: { de: 'Ristorante Montebello', en: 'Ristorante Montebello' },
-    zeit: { de: 'ca. 13:00', en: 'approx. 13:00' },
-    unterzeile: { de: 'Mittagessen', en: 'Lunch' },
-    text: [
-      {
-        de:
-          'Mittagspause im Ristorante Montebello: Spareribs und Pommes, ' +
-          'draussen an der Sonne – und keine Eile, der Nachmittag konnte warten.',
-        en:
-          'Lunch at Ristorante Montebello: spare ribs and chips, outside in ' +
-          'the sun – and no hurry; the afternoon could wait.',
-      },
-    ],
-    bild: 'mittag-rippli.jpg',
-    bildnachweis: {
-      de: 'Spareribs im Ristorante Montebello',
-      en: 'Spare ribs at Ristorante Montebello',
-    },
-  },
-  {
     name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
-    unterzeile: { de: 'Falls die Zeit reicht', en: 'If time allows' },
+    unterzeile: { de: 'Die mittlere der drei Burgen', en: 'The middle of the three castles' },
     text: [
       {
         de:
           'Die mittlere der drei Burgen sitzt auf einem Felssporn östlich über ' +
           'der Altstadt. Ihr Kern stammt aus dem 13. Jahrhundert; die äusseren ' +
-          'Ringmauern kamen später dazu. Von hier führt der Weg zurück ' +
-          'hinunter zum Ausgangspunkt.',
+          'Ringmauern kamen später dazu. Gleich bei der Burg liegt das ' +
+          'Ristorante – dort war die Mittagspause.',
         en:
           'The middle of the three castles sits on a rocky spur east above the ' +
           'old town. Its core dates from the 13th century; the outer curtain ' +
-          'walls came later. From here the path leads back down to the start.',
+          'walls came later. The ristorante sits right by the castle – that is ' +
+          'where we stopped for lunch.',
       },
     ],
     bild: 'felsenweg-stadt.jpg',
@@ -481,6 +460,29 @@ export const stationen: Station[] = [
     },
     lat: 46.1912,
     lng: 9.0248,
+  },
+  {
+    name: { de: 'Ristorante Montebello', en: 'Ristorante Montebello' },
+    zeit: { de: 'ca. 13:00', en: 'approx. 13:00' },
+    unterzeile: { de: 'Mittagessen', en: 'Lunch' },
+    text: [
+      {
+        de:
+          'Mittagspause im Ristorante Montebello, gleich bei der Burg: ' +
+          'zuerst ein Apéro-Plättli, dann Spareribs mit Pommes frites – ' +
+          'draussen an der Sonne und ohne Eile. Danach ging es zurück ' +
+          'hinunter zum Bahnhof.',
+        en:
+          'Lunch at Ristorante Montebello, right by the castle: an apéro ' +
+          'platter first, then spare ribs and chips – outside in the sun, ' +
+          'with no hurry at all. Then it was back down to the station.',
+      },
+    ],
+    bild: 'mittag-rippli.jpg',
+    bildnachweis: {
+      de: 'Spareribs im Ristorante Montebello',
+      en: 'Spare ribs at Ristorante Montebello',
+    },
   },
 ]
 
