@@ -54,7 +54,7 @@ export default function Karte() {
   }, [])
 
   return (
-    <Section id="karte" nummer="03" titel="Karte">
+    <Section id="karte" nummer="04" titel="Karte">
       <p className="hinweis hinweis--block">
         Die Standorte sind ungefähr gesetzt – zum Orientieren reicht es, für die
         genaue Route gilt die Wanderkarte.

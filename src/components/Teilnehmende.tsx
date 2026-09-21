@@ -5,7 +5,7 @@ export default function Teilnehmende() {
   if (teilnehmende.length === 0) return null
 
   return (
-    <Section id="teilnehmende" nummer="06" titel={`Wer mitkommt (${teilnehmende.length})`}>
+    <Section id="teilnehmende" nummer="07" titel={`Wer mitkommt (${teilnehmende.length})`}>
       <ul className="personen">
         {teilnehmende.map((person) => (
           <li key={person.name} className="person">

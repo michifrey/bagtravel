@@ -23,6 +23,7 @@ blenden den jeweiligen Abschnitt automatisch aus.
 | Kennzahlen & Burgen          | `wanderung`      |
 | Hero-Bild & Bildnachweis     | `trip.bild`, `trip.bildnachweis` |
 | Kartenmitte, Zoom, Marker    | `karte`          |
+| Stationen mit Text und Bild  | `stationen`      |
 | Tagesprogramm                | `reisetage`      |
 | Infokarten «Gut zu wissen»   | `infoBloecke`    |
 | Packliste                    | `packliste`      |
@@ -34,6 +35,18 @@ blenden den jeweiligen Abschnitt automatisch aus.
 Bilder liegen in `public/` und werden über ihren Dateinamen referenziert
 (z. B. `trip.bild = 'castelgrande.jpg'`). Vite stellt der URL automatisch die
 konfigurierte Basis voran, im Code ist also kein Pfad nötig.
+
+Für eine Station genügt es, die Datei nach `public/` zu legen und in
+`stationen` einzutragen:
+
+```ts
+bild: 'sasso-corbaro.jpg',
+bildnachweis: 'Sasso Corbaro, Blick nach Süden',
+```
+
+Ist `bild` leer, erscheint statt eines kaputten Bildes eine schraffierte
+Platzhalterfläche. Empfehlung: Querformat, mindestens 1200 px breit; die
+Darstellung schneidet auf 4:3.
 
 ## Karte
 

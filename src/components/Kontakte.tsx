@@ -5,7 +5,7 @@ export default function Kontakte() {
   if (kontakte.length === 0) return null
 
   return (
-    <Section id="kontakte" nummer="07" titel="Kontakte">
+    <Section id="kontakte" nummer="08" titel="Kontakte">
       <ul className="kontakte">
         {kontakte.map((kontakt) => (
           <li key={kontakt.name} className="kontakt">

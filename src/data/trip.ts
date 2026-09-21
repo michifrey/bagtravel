@@ -76,6 +76,22 @@ export type Karte = {
   orte: Ort[]
 }
 
+export type Station = {
+  name: string
+  /** Uhrzeit oder Zeitfenster, passend zum Programm. */
+  zeit?: string
+  /** Kurze Einordnung unter dem Namen, z. B. «Die älteste der drei Burgen». */
+  unterzeile?: string
+  /** Fliesstext, ein Eintrag pro Absatz. */
+  text: string[]
+  /** Dateiname in public/, z. B. 'sasso-corbaro.jpg'. Leer = Platzhalter. */
+  bild: string
+  bildnachweis?: string
+  /** Koordinaten; gesetzt erscheint ein Link auf die Karte. */
+  lat?: number
+  lng?: number
+}
+
 export type Teilnehmer = {
   name: string
   /** Funktion oder Abteilung, optional. */
@@ -217,6 +233,91 @@ export const reisetage: Reisetag[] = [
         titel: 'Ankunft in Baden',
       },
     ],
+  },
+]
+
+export const stationen: Station[] = [
+  {
+    name: 'Bahnhof Bellinzona',
+    zeit: '09:42',
+    unterzeile: 'Ankunft und Start',
+    text: [
+      'Vom Bahnhof geht es zu Fuss in die Altstadt – rund zehn Minuten nach ' +
+        'Süden, vorbei an der Piazza Collegiata. Schon von unten sieht man ' +
+        'die Mauern des Castelgrande über den Dächern liegen.',
+      'Hier endet der Tag auch wieder: Rückfahrt um 16:17 Uhr.',
+    ],
+    bild: '',
+    lat: 46.1954,
+    lng: 9.0172,
+  },
+  {
+    name: 'Castelgrande',
+    zeit: 'ab 10:00',
+    unterzeile: 'Die älteste und grösste der drei Burgen',
+    text: [
+      'Castelgrande steht auf einem Felshügel mitten in der Altstadt. Der ' +
+        'Standort ist seit der Antike befestigt; was heute steht, wuchs über ' +
+        'Jahrhunderte. Weithin sichtbar sind die beiden Türme: der Torre ' +
+        'Bianca und der Torre Nera.',
+      'In den 1980er- und 90er-Jahren baute der Tessiner Architekt Aurelio ' +
+        'Galfetti die Anlage um und erschloss sie neu – ein viel beachtetes ' +
+        'Stück Schweizer Architektur. Zusammen mit Montebello, Sasso Corbaro ' +
+        'und der Stadtmauer gehört die Burg seit 2000 zum UNESCO-Welterbe.',
+    ],
+    bild: 'castelgrande.jpg',
+    bildnachweis: 'Castelgrande, Bellinzona',
+    lat: 46.1925,
+    lng: 9.0186,
+  },
+  {
+    name: 'Ruinen Prada',
+    unterzeile: 'Zwischenstopp am Hang',
+    text: [
+      'Auf dem Weg hinauf Richtung Sasso Corbaro liegen die Überreste einer ' +
+        'älteren Befestigung am Hang oberhalb der Stadt. Ein kurzer Halt mit ' +
+        'Blick zurück auf Bellinzona.',
+    ],
+    bild: '',
+  },
+  {
+    name: 'Castello di Sasso Corbaro',
+    unterzeile: 'Die höchstgelegene der drei Burgen',
+    text: [
+      'Sasso Corbaro liegt rund 230 Meter über der Stadt und ist der ' +
+        'anstrengendste Teil des Aufstiegs – dafür entschädigt die Aussicht ' +
+        'über die Magadinoebene bis zum Lago Maggiore.',
+      'Gebaut wurde die quadratische Anlage 1478/79 in nur wenigen Monaten, ' +
+        'im Auftrag von Mailand nach der Schlacht bei Giornico. Sie steht ' +
+        'etwas abseits der beiden anderen Burgen, weil sie eine Lücke in der ' +
+        'Verteidigung schliessen sollte.',
+    ],
+    bild: '',
+    lat: 46.1856,
+    lng: 9.0283,
+  },
+  {
+    name: 'Grotto die Pacifici',
+    zeit: 'ca. 13:00',
+    unterzeile: 'Mittagessen',
+    text: [
+      'Mittagspause im Grotto – die Tessiner Antwort auf den Berggasthof: ' +
+        'Steintische im Schatten, einfache Küche, kein Grund zur Eile.',
+    ],
+    bild: '',
+  },
+  {
+    name: 'Castello di Montebello',
+    unterzeile: 'Falls die Zeit reicht',
+    text: [
+      'Die mittlere der drei Burgen sitzt auf einem Felssporn östlich über ' +
+        'der Altstadt. Ihr Kern stammt aus dem 13. Jahrhundert; die äusseren ' +
+        'Ringmauern kamen später dazu. Von hier führt der Weg zurück ' +
+        'hinunter zum Ausgangspunkt.',
+    ],
+    bild: '',
+    lat: 46.1912,
+    lng: 9.0248,
   },
 ]
 
