@@ -31,7 +31,7 @@ Compiler zeigt dann jede Stelle an, an der eine Übersetzung fehlt.
 
 ## Inhalte ändern
 
-Sämtliche Texte, das Programm, die Infoblöcke und die Packliste stehen in
+Sämtliche Texte, das Programm, die Stationen und die Infoblöcke stehen in
 **einer einzigen Datei**:
 
 ```
@@ -51,7 +51,6 @@ blenden den jeweiligen Abschnitt automatisch aus.
 | Stationen mit Text und Bild  | `stationen`      |
 | Tagesprogramm                | `reisetage`      |
 | Infokarten «Gut zu wissen»   | `infoBloecke`    |
-| Packliste                    | `packliste`      |
 | Teilnehmerliste              | `teilnehmende`   |
 | Kontakte                     | `kontakte`       |
 

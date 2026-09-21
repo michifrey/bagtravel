@@ -185,6 +185,8 @@ export const wanderung: Wanderdaten = {
 export const karte: Karte = {
   zentrum: { lat: 46.1905, lng: 9.0235 },
   zoom: 14,
+  // Reihenfolge = Reihenfolge des Tages. Sie bestimmt die Nummern der Marker
+  // und den Verlauf der verbindenden Linie.
   orte: [
     {
       name: { de: 'Bahnhof Bellinzona', en: 'Bellinzona station' },
@@ -206,15 +208,6 @@ export const karte: Karte = {
       lng: 9.0186,
     },
     {
-      name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
-      beschreibung: {
-        de: 'Mittlere Burg auf dem Felssporn über der Stadt.',
-        en: 'The middle castle, on the rocky spur above the town.',
-      },
-      lat: 46.1912,
-      lng: 9.0248,
-    },
-    {
       name: { de: 'Castello di Sasso Corbaro', en: 'Castello di Sasso Corbaro' },
       beschreibung: {
         de: 'Die höchstgelegene der drei Burgen, rund 230 m über der Stadt.',
@@ -222,6 +215,15 @@ export const karte: Karte = {
       },
       lat: 46.1856,
       lng: 9.0283,
+    },
+    {
+      name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
+      beschreibung: {
+        de: 'Mittlere Burg auf dem Felssporn über der Stadt.',
+        en: 'The middle castle, on the rocky spur above the town.',
+      },
+      lat: 46.1912,
+      lng: 9.0248,
     },
   ],
 }
@@ -427,10 +429,10 @@ export const stationen: Station[] = [
           'defences.',
       },
     ],
-    bild: 'magadinoebene.jpg',
+    bild: 'sasso-corbaro-bau.jpg',
     bildnachweis: {
-      de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
-      en: 'Across the Magadino plain towards Lake Maggiore',
+      de: 'Die quadratische Anlage auf dem Felsgrat',
+      en: 'The square fortress on the rocky ridge',
     },
     lat: 46.1856,
     lng: 9.0283,
@@ -449,7 +451,11 @@ export const stationen: Station[] = [
           'tables in the shade, simple food, no reason to hurry.',
       },
     ],
-    bild: '',
+    bild: 'grotto-rippli.jpg',
+    bildnachweis: {
+      de: 'Spareribs im Grotto',
+      en: 'Spare ribs at the grotto',
+    },
   },
   {
     name: { de: 'Castello di Montebello', en: 'Castello di Montebello' },
@@ -497,6 +503,69 @@ export const galerie: Galeriebild[] = [
     nachweis: {
       de: 'Der Wehrgang der Murata',
       en: 'The Murata rampart walk',
+    },
+  },
+  {
+    datei: 'grotto-teller.jpg',
+    nachweis: {
+      de: 'Der Teller, auf den alle gewartet haben',
+      en: 'The plate everyone had been waiting for',
+    },
+  },
+  {
+    datei: 'treppe-von-oben.jpg',
+    nachweis: {
+      de: 'Die Treppe von oben, die Stadt schon wieder nah',
+      en: 'The steps from above, the town close again',
+    },
+  },
+  {
+    datei: 'wiese-farn.jpg',
+    nachweis: {
+      de: 'Wiese und Farn am Hang, dahinter die Berge',
+      en: 'Meadow and ferns on the slope, mountains behind',
+    },
+  },
+  {
+    datei: 'weg-hinauf.jpg',
+    nachweis: {
+      de: 'Die Gruppe auf dem Weg hinauf, die Stadt schon unter uns',
+      en: 'The group on the way up, the town already below',
+    },
+  },
+  {
+    datei: 'gruppe-burgmauer.jpg',
+    nachweis: {
+      de: 'Unterwegs, rechts die Burgmauer',
+      en: 'On the way, the castle wall to the right',
+    },
+  },
+  {
+    datei: 'zinnenmauer-hang.jpg',
+    nachweis: {
+      de: 'Die Zinnenmauer über dem Hang',
+      en: 'The battlemented wall above the slope',
+    },
+  },
+  {
+    datei: 'mauern-durch-baeume.jpg',
+    nachweis: {
+      de: 'Mauern über dem Fels, durch die Bäume gesehen',
+      en: 'Walls above the rock, seen through the trees',
+    },
+  },
+  {
+    datei: 'magadinoebene.jpg',
+    nachweis: {
+      de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
+      en: 'Across the Magadino plain towards Lake Maggiore',
+    },
+  },
+  {
+    datei: 'weg-baeume.jpg',
+    nachweis: {
+      de: 'Unterwegs auf dem gepflasterten Weg',
+      en: 'On the cobbled path',
     },
   },
   {
@@ -577,31 +646,6 @@ export const infoBloecke: Infoblock[] = [
         en: 'Afternoon: please bring your own snack and an extra drink.',
       },
     ],
-  },
-]
-
-export const packliste: Text[] = [
-  { de: 'Wanderschuhe mit Profil', en: 'Hiking boots with grip' },
-  { de: 'Wetterfeste Jacke', en: 'Weatherproof jacket' },
-  {
-    de: 'Sonnenschutz: Kappe, Sonnencreme, Sonnenbrille',
-    en: 'Sun protection: cap, sunscreen, sunglasses',
-  },
-  {
-    de: 'Nachmittags-Snack und zusätzliches Getränk',
-    en: 'Afternoon snack and an extra drink',
-  },
-  { de: 'Trinkflasche', en: 'Water bottle' },
-  { de: 'Rucksack', en: 'Backpack' },
-  { de: 'Halbtax / GA bzw. Billett', en: 'Rail pass or ticket' },
-  {
-    de: 'Bargeld oder Karte fürs Mittagessen',
-    en: 'Cash or card for lunch',
-  },
-  { de: 'Handy und Powerbank', en: 'Phone and power bank' },
-  {
-    de: 'Pflaster und persönliche Medikamente',
-    en: 'Plasters and personal medication',
   },
 ]
 
