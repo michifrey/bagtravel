@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import Infos from './components/Infos'
+import Karte from './components/Karte'
 import Kontakte from './components/Kontakte'
 import Nav from './components/Nav'
 import Packliste from './components/Packliste'
@@ -16,6 +17,7 @@ export default function App() {
       <main className="inhalt">
         <Wanderung />
         <Programm />
+        <Karte />
         <Infos />
         <Packliste />
         <Teilnehmende />

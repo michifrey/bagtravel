@@ -424,3 +424,109 @@ a {
   margin: 0 0 1.4rem;
   max-width: 44rem;
 }
+
+/* --- Hero mit Bild ------------------------------------------------------- */
+
+.hero--bild {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero__bild {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-position: center 40%;
+  background-size: cover;
+}
+
+/* Abdunkeln, damit die Schrift auf jedem Bildausschnitt lesbar bleibt. */
+.hero--bild::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgb(12 22 18 / 62%) 0%,
+    rgb(12 22 18 / 72%) 100%
+  );
+}
+
+.hero--bild .hero__title,
+.hero--bild .hero__intro {
+  color: #fff;
+}
+
+.hero--bild .hero__org {
+  color: #a8dcc6;
+}
+
+.hero--bild .hero__subtitle {
+  color: #d6e4dd;
+}
+
+.hero--bild .countdown {
+  border-color: rgb(255 255 255 / 30%);
+  background: rgb(255 255 255 / 12%);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.hero--bild .countdown strong {
+  color: #a8dcc6;
+}
+
+.hero__nachweis {
+  position: relative;
+  margin: 2rem auto 0;
+  max-width: var(--breite);
+  color: rgb(255 255 255 / 65%);
+  font-size: 0.75rem;
+}
+
+/* --- Karte --------------------------------------------------------------- */
+
+.karte {
+  height: clamp(20rem, 55vw, 28rem);
+  border: 1px solid var(--rand);
+  border-radius: var(--radius);
+  background: var(--flaeche);
+  overflow: hidden;
+}
+
+.marker {
+  display: block;
+  height: 18px;
+  width: 18px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 40%);
+}
+
+.marker--burg {
+  background: #b4472f;
+}
+
+.marker--start {
+  background: var(--akzent);
+}
+
+/* Leaflet-Popups ans Farbschema angleichen. */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--flaeche);
+  color: var(--fg);
+}
+
+.leaflet-popup-content {
+  margin: 0.8rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.leaflet-container {
+  background: var(--flaeche);
+  font: inherit;
+}

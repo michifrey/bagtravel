@@ -19,6 +19,10 @@ export type Trip = {
   einleitung: string
   /** Countdown-Ziel im Format YYYY-MM-DD. Leer lassen = kein Countdown. */
   abreiseDatum: string
+  /** Hero-Bild aus public/, leer lassen = nur Farbverlauf. */
+  bild: string
+  /** Bildnachweis, erscheint klein am Bildrand. */
+  bildnachweis: string
 }
 
 export type Programmpunkt = {
@@ -52,6 +56,26 @@ export type Wanderdaten = {
   hinweis: string
 }
 
+export type Ort = {
+  name: string
+  /** Kurze Einordnung, erscheint im Karten-Popup. */
+  beschreibung?: string
+  /** Breitengrad (WGS84), z. B. 46.1925. */
+  lat: number
+  /** Längengrad (WGS84), z. B. 9.0186. */
+  lng: number
+  /** Startpunkt bzw. Bahnhof statt Burg – wird anders eingefärbt. */
+  istStart?: boolean
+}
+
+export type Karte = {
+  /** Kartenmitte. */
+  zentrum: { lat: number; lng: number }
+  /** Zoomstufe beim Laden (höher = näher). */
+  zoom: number
+  orte: Ort[]
+}
+
 export type Teilnehmer = {
   name: string
   /** Funktion oder Abteilung, optional. */
@@ -79,12 +103,14 @@ export const trip: Trip = {
   organisation: 'Bergauer AG',
   titel: 'Bellinzona – zu den drei Burgen',
   untertitel: 'Wandertag',
-  zeitraum: 'Datum folgt',
+  zeitraum: '21. September 2026',
   einleitung:
     'Ein Tag im Tessin: von Bellinzona hinauf zu den drei mittelalterlichen ' +
     'Burgen und wieder zurück – mit Mittagessen im Grotto und genügend Zeit ' +
     'für die Aussicht.',
-  abreiseDatum: '',
+  abreiseDatum: '2026-09-21',
+  bild: 'castelgrande.jpg',
+  bildnachweis: 'Castelgrande, Bellinzona',
 }
 
 export const wanderung: Wanderdaten = {
@@ -108,9 +134,41 @@ export const wanderung: Wanderdaten = {
     'wetterfeste Kleidung sind Pflicht.',
 }
 
+export const karte: Karte = {
+  zentrum: { lat: 46.1905, lng: 9.0235 },
+  zoom: 14,
+  orte: [
+    {
+      name: 'Bahnhof Bellinzona',
+      beschreibung: 'Start und Ziel der Wanderung.',
+      lat: 46.1954,
+      lng: 9.0172,
+      istStart: true,
+    },
+    {
+      name: 'Castelgrande',
+      beschreibung: 'Die grösste und älteste der drei Burgen, direkt über der Altstadt.',
+      lat: 46.1925,
+      lng: 9.0186,
+    },
+    {
+      name: 'Castello di Montebello',
+      beschreibung: 'Mittlere Burg auf dem Felssporn über der Stadt.',
+      lat: 46.1912,
+      lng: 9.0248,
+    },
+    {
+      name: 'Castello di Sasso Corbaro',
+      beschreibung: 'Die höchstgelegene der drei Burgen, rund 230 m über der Stadt.',
+      lat: 46.1856,
+      lng: 9.0283,
+    },
+  ],
+}
+
 export const reisetage: Reisetag[] = [
   {
-    datum: 'Datum folgt',
+    datum: 'Montag, 21. September 2026',
     titel: 'Bellinzona und die drei Burgen',
     programm: [
       {

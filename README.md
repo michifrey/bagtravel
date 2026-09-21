@@ -21,11 +21,26 @@ blenden den jeweiligen Abschnitt automatisch aus.
 | Titel, Untertitel, Zeitraum  | `trip`           |
 | Countdown-Datum              | `trip.abreiseDatum` (`YYYY-MM-DD`, leer = aus) |
 | Kennzahlen & Burgen          | `wanderung`      |
+| Hero-Bild & Bildnachweis     | `trip.bild`, `trip.bildnachweis` |
+| Kartenmitte, Zoom, Marker    | `karte`          |
 | Tagesprogramm                | `reisetage`      |
 | Infokarten «Gut zu wissen»   | `infoBloecke`    |
 | Packliste                    | `packliste`      |
 | Teilnehmerliste              | `teilnehmende`   |
 | Kontakte                     | `kontakte`       |
+
+## Bilder
+
+Bilder liegen in `public/` und werden über ihren Dateinamen referenziert
+(z. B. `trip.bild = 'castelgrande.jpg'`). Vite stellt der URL automatisch die
+konfigurierte Basis voran, im Code ist also kein Pfad nötig.
+
+## Karte
+
+Die Karte nutzt [Leaflet](https://leafletjs.com/) mit Kacheln von
+OpenStreetMap – beides ohne API-Schlüssel. Die Marker stehen in `karte.orte`
+in `src/data/trip.ts` und sind ungefähr gesetzt; Koordinaten lassen sich dort
+direkt korrigieren.
 
 ## Lokal starten
 
