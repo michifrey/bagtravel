@@ -7,6 +7,7 @@ const eintraege = [
   { id: 'wanderung', label: ui.nav.wanderung },
   { id: 'programm', label: ui.nav.programm },
   { id: 'stationen', label: ui.nav.stationen },
+  { id: 'galerie', label: ui.nav.galerie },
   { id: 'karte', label: ui.nav.karte },
   { id: 'infos', label: ui.nav.infos },
   { id: 'packliste', label: ui.nav.packliste },

@@ -72,7 +72,7 @@ export default function Karte() {
   }, [sprache])
 
   return (
-    <Section id="karte" nummer="04" titel={ui.titel.karte}>
+    <Section id="karte" nummer="05" titel={ui.titel.karte}>
       <p className="hinweis hinweis--block">{t(ui.karte.hinweis)}</p>
       <div
         ref={container}

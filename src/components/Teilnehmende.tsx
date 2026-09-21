@@ -10,7 +10,7 @@ export default function Teilnehmende() {
   return (
     <Section
       id="teilnehmende"
-      nummer="07"
+      nummer="08"
       titel={ui.titel.teilnehmende}
       zusatz={`(${teilnehmende.length})`}
     >

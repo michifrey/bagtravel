@@ -93,6 +93,12 @@ export type Station = {
   lng?: number
 }
 
+export type Galeriebild = {
+  /** Dateiname in public/. */
+  datei: string
+  nachweis?: Text
+}
+
 export type Teilnehmer = {
   name: string
   /** Funktion oder Abteilung, optional. */
@@ -134,10 +140,10 @@ export const trip: Trip = {
       'back again – with lunch at the grotto and plenty of time for the view.',
   },
   abreiseDatum: '2026-09-21',
-  bild: 'castelgrande.jpg',
+  bild: 'wehrgang-gruppe.jpg',
   bildnachweis: {
-    de: 'Castelgrande, Bellinzona',
-    en: 'Castelgrande, Bellinzona',
+    de: 'Auf dem Wehrgang der Murata, im Rücken das Castelgrande',
+    en: 'On the Murata rampart, Castelgrande behind',
   },
 }
 
@@ -321,7 +327,11 @@ export const stationen: Station[] = [
         en: 'The day ends here too: the train back leaves at 16:17.',
       },
     ],
-    bild: '',
+    bild: 'blick-bellinzona.jpg',
+    bildnachweis: {
+      de: 'Blick über Bellinzona und die Talebene',
+      en: 'Looking out over Bellinzona and the valley floor',
+    },
     lat: 46.1954,
     lng: 9.0172,
   },
@@ -358,10 +368,10 @@ export const stationen: Station[] = [
           'town wall, it has been a UNESCO World Heritage Site since 2000.',
       },
     ],
-    bild: 'castelgrande.jpg',
+    bild: 'castelgrande-hof.jpg',
     bildnachweis: {
-      de: 'Castelgrande, Bellinzona',
-      en: 'Castelgrande, Bellinzona',
+      de: 'Im Hof des Castelgrande, dahinter der Torre Nera',
+      en: 'In the Castelgrande courtyard, the Torre Nera behind',
     },
     lat: 46.1925,
     lng: 9.0186,
@@ -452,6 +462,37 @@ export const stationen: Station[] = [
     bild: '',
     lat: 46.1912,
     lng: 9.0248,
+  },
+]
+
+export const galerie: Galeriebild[] = [
+  {
+    datei: 'abstieg-stadt.jpg',
+    nachweis: {
+      de: 'Abstieg vom Castelgrande Richtung Stadt',
+      en: 'Coming down from Castelgrande towards the town',
+    },
+  },
+  {
+    datei: 'abstieg-treppe.jpg',
+    nachweis: {
+      de: 'Die Treppe hinunter an der Mauer entlang',
+      en: 'Down the steps along the wall',
+    },
+  },
+  {
+    datei: 'murata-wehrgang.jpg',
+    nachweis: {
+      de: 'Der Wehrgang der Murata',
+      en: 'The Murata rampart walk',
+    },
+  },
+  {
+    datei: 'castelgrande-turm.jpg',
+    nachweis: {
+      de: 'Der Torre Nera über dem Hof',
+      en: 'The Torre Nera above the courtyard',
+    },
   },
 ]
 

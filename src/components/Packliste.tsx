@@ -39,7 +39,7 @@ export default function Packliste() {
     )
 
   return (
-    <Section id="packliste" nummer="06" titel={ui.titel.packliste}>
+    <Section id="packliste" nummer="07" titel={ui.titel.packliste}>
       <p className="hinweis">{t(ui.packliste.hinweis)}</p>
       <ul className="packliste">
         {packliste.map((eintrag) => (

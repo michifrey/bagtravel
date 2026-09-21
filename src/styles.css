@@ -911,3 +911,35 @@ a {
     color: #14120f;
   }
 }
+
+/* ==========================================================================
+   Galerie
+   ========================================================================== */
+
+.galerie {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.galerie__figur {
+  margin: 0;
+}
+
+.galerie__bild {
+  display: block;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  border: 1px solid var(--linie);
+  object-fit: cover;
+}
+
+.galerie__nachweis {
+  margin-top: 0.6rem;
+  color: var(--tinte-leise);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}

@@ -8,7 +8,7 @@ export default function Infos() {
   if (infoBloecke.length === 0) return null
 
   return (
-    <Section id="infos" nummer="05" titel={ui.titel.infos}>
+    <Section id="infos" nummer="06" titel={ui.titel.infos}>
       <div className="karten">
         {infoBloecke.map((block) => (
           <article key={block.titel.de} className="karte">

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Galerie from './components/Galerie'
 import Hero from './components/Hero'
 import Infos from './components/Infos'
 import Karte from './components/Karte'
@@ -33,6 +34,7 @@ function Seite() {
         <Wanderung />
         <Programm />
         <Stationen />
+        <Galerie />
         <Karte />
         <Infos />
         <Packliste />
