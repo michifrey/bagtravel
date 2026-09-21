@@ -502,6 +502,34 @@ export const galerie: Galeriebild[] = [
     },
   },
   {
+    datei: 'weg-hinauf.jpg',
+    nachweis: {
+      de: 'Die Gruppe auf dem Weg hinauf, die Stadt schon unter uns',
+      en: 'The group on the way up, the town already below',
+    },
+  },
+  {
+    datei: 'gruppe-burgmauer.jpg',
+    nachweis: {
+      de: 'Unterwegs, rechts die Burgmauer',
+      en: 'On the way, the castle wall to the right',
+    },
+  },
+  {
+    datei: 'zinnenmauer-hang.jpg',
+    nachweis: {
+      de: 'Die Zinnenmauer über dem Hang',
+      en: 'The battlemented wall above the slope',
+    },
+  },
+  {
+    datei: 'mauern-durch-baeume.jpg',
+    nachweis: {
+      de: 'Mauern über dem Fels, durch die Bäume gesehen',
+      en: 'Walls above the rock, seen through the trees',
+    },
+  },
+  {
     datei: 'magadinoebene.jpg',
     nachweis: {
       de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
