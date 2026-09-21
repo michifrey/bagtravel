@@ -423,7 +423,11 @@ export const stationen: Station[] = [
           'defences.',
       },
     ],
-    bild: '',
+    bild: 'aufstieg-wald.jpg',
+    bildnachweis: {
+      de: 'Der Aufstieg durch den Wald oberhalb der Stadt',
+      en: 'The climb through the woods above the town',
+    },
     lat: 46.1856,
     lng: 9.0283,
   },
