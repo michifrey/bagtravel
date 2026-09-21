@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useSprache } from '../i18n'
+import { ui } from '../data/ui'
 
 /** Ganze Tage von heute bis zum Abreisedatum, oder null wenn kein Datum gesetzt ist. */
 function tageBis(abreiseDatum: string): number | null {
@@ -13,6 +15,7 @@ function tageBis(abreiseDatum: string): number | null {
 
 export default function Countdown({ abreiseDatum }: { abreiseDatum: string }) {
   const [tage, setTage] = useState(() => tageBis(abreiseDatum))
+  const { t } = useSprache()
 
   // Über Mitternacht hinweg aktuell halten, ohne sekündlich zu rechnen.
   useEffect(() => {
@@ -25,10 +28,11 @@ export default function Countdown({ abreiseDatum }: { abreiseDatum: string }) {
   if (tage > 0) {
     return (
       <p className="countdown">
-        <strong>{tage}</strong> {tage === 1 ? 'Tag' : 'Tage'} bis zur Abreise
+        <strong>{tage}</strong>
+        {t(tage === 1 ? ui.countdown.tagEinzahl : ui.countdown.tagMehrzahl)}
       </p>
     )
   }
-  if (tage === 0) return <p className="countdown">Heute geht’s los!</p>
-  return <p className="countdown">Die Reise liegt hinter uns.</p>
+  if (tage === 0) return <p className="countdown">{t(ui.countdown.heute)}</p>
+  return <p className="countdown">{t(ui.countdown.vorbei)}</p>
 }

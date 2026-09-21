@@ -4,6 +4,31 @@ Website zur Wanderung von Bellinzona zu den drei Burgen.
 
 Live: <https://michifrey.github.io/bagtravel/> (sobald GitHub Pages aktiviert ist)
 
+## Sprachen
+
+Die Seite ist zweisprachig (Deutsch / Englisch). Texte stehen als
+`{ de: '…', en: '…' }` direkt nebeneinander, damit beim Ändern keine Fassung
+vergessen geht:
+
+```ts
+titel: { de: 'Treffpunkt', en: 'Meeting point' },
+```
+
+Was in beiden Sprachen gleich ist – Zahlen, Uhrzeiten, Eigennamen – bleibt ein
+einfacher String.
+
+| Was                        | Wo                |
+| -------------------------- | ----------------- |
+| Reiseinhalte               | `src/data/trip.ts` |
+| Beschriftungen der Seite   | `src/data/ui.ts`   |
+| Sprachlogik und Umschalter | `src/i18n.tsx`     |
+
+Welche Sprache ein Besucher sieht: die zuletzt gewählte (im Browser
+gespeichert), sonst Deutsch bei deutschsprachigem Browser, sonst Englisch.
+
+Eine dritte Sprache ergänzen: `Sprache` in `src/i18n.tsx` erweitern – der
+Compiler zeigt dann jede Stelle an, an der eine Übersetzung fehlt.
+
 ## Inhalte ändern
 
 Sämtliche Texte, das Programm, die Infoblöcke und die Packliste stehen in

@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import Galerie from './components/Galerie'
 import Hero from './components/Hero'
 import Infos from './components/Infos'
 import Karte from './components/Karte'
@@ -9,8 +11,21 @@ import Stationen from './components/Stationen'
 import Teilnehmende from './components/Teilnehmende'
 import Wanderung from './components/Wanderung'
 import { trip } from './data/trip'
+import { ui } from './data/ui'
+import { SprachProvider, useSprache } from './i18n'
 
-export default function App() {
+function Seite() {
+  const { t } = useSprache()
+
+  // Titel und Beschreibung stehen statisch im HTML; bei Sprachwechsel
+  // müssen sie nachgeführt werden.
+  useEffect(() => {
+    document.title = t(ui.seitentitel)
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute('content', t(ui.beschreibung))
+  }, [t])
+
   return (
     <>
       <Hero />
@@ -19,6 +34,7 @@ export default function App() {
         <Wanderung />
         <Programm />
         <Stationen />
+        <Galerie />
         <Karte />
         <Infos />
         <Packliste />
@@ -27,9 +43,17 @@ export default function App() {
       </main>
       <footer className="fuss">
         <p>
-          {trip.organisation} · {trip.untertitel} · {trip.zeitraum}
+          {trip.organisation} · {t(trip.untertitel)} · {t(trip.zeitraum)}
         </p>
       </footer>
     </>
+  )
+}
+
+export default function App() {
+  return (
+    <SprachProvider>
+      <Seite />
+    </SprachProvider>
   )
 }

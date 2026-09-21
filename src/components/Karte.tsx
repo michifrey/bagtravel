@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { karte } from '../data/trip'
+import { ui } from '../data/ui'
+import { useSprache } from '../i18n'
 import Section from './Section'
 
 /**
@@ -18,9 +20,25 @@ function markerIcon(istStart: boolean) {
   })
 }
 
+/** Popup-Inhalt als DOM statt HTML-String – so kann nichts aus den Daten ausbrechen. */
+function popupInhalt(name: string, beschreibung?: string) {
+  const wurzel = document.createElement('div')
+  const stark = document.createElement('strong')
+  stark.textContent = name
+  wurzel.append(stark)
+
+  if (beschreibung) {
+    wurzel.append(document.createElement('br'))
+    wurzel.append(document.createTextNode(beschreibung))
+  }
+  return wurzel
+}
+
 export default function Karte() {
   const container = useRef<HTMLDivElement>(null)
+  const { sprache, t } = useSprache()
 
+  // Bei Sprachwechsel neu aufbauen, damit die Popups mitziehen.
   useEffect(() => {
     if (!container.current) return
 
@@ -39,7 +57,7 @@ export default function Karte() {
       L.marker([ort.lat, ort.lng], { icon: markerIcon(ort.istStart ?? false) })
         .addTo(map)
         .bindPopup(
-          `<strong>${ort.name}</strong>${ort.beschreibung ? `<br>${ort.beschreibung}` : ''}`,
+          popupInhalt(ort.name[sprache], ort.beschreibung?.[sprache]),
         ),
     )
 
@@ -51,15 +69,17 @@ export default function Karte() {
     return () => {
       map.remove()
     }
-  }, [])
+  }, [sprache])
 
   return (
-    <Section id="karte" nummer="04" titel="Karte">
-      <p className="hinweis hinweis--block">
-        Die Standorte sind ungefähr gesetzt – zum Orientieren reicht es, für die
-        genaue Route gilt die Wanderkarte.
-      </p>
-      <div ref={container} className="karte-flaeche" role="application" aria-label="Karte der drei Burgen" />
+    <Section id="karte" nummer="05" titel={ui.titel.karte}>
+      <p className="hinweis hinweis--block">{t(ui.karte.hinweis)}</p>
+      <div
+        ref={container}
+        className="karte-flaeche"
+        role="application"
+        aria-label={t(ui.karte.beschriftung)}
+      />
     </Section>
   )
 }
