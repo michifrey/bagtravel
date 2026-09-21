@@ -133,11 +133,12 @@ export const trip: Trip = {
   einleitung: {
     de:
       'Ein Tag im Tessin: von Bellinzona hinauf zu den drei mittelalterlichen ' +
-      'Burgen und wieder zurück – mit Mittagessen im Grotto und genügend Zeit ' +
-      'für die Aussicht.',
+      'Burgen und wieder zurück – mit Mittagessen im Ristorante Montebello ' +
+      'und genügend Zeit für die Aussicht.',
     en:
       'A day in Ticino: up from Bellinzona to the three medieval castles and ' +
-      'back again – with lunch at the grotto and plenty of time for the view.',
+      'back again – with lunch at Ristorante Montebello and plenty of time ' +
+      'for the view.',
   },
   abreiseDatum: '2026-09-21',
   bild: 'wehrgang-gruppe.jpg',
@@ -276,7 +277,7 @@ export const reisetage: Reisetag[] = [
       {
         zeit: { de: 'ca. 13:00', en: 'approx. 13:00' },
         titel: { de: 'Mittagessen', en: 'Lunch' },
-        ort: { de: 'Grotto die Pacifici', en: 'Grotto die Pacifici' },
+        ort: { de: 'Ristorante Montebello', en: 'Ristorante Montebello' },
       },
       {
         zeit: { de: 'nachmittags', en: 'afternoon' },
@@ -438,23 +439,23 @@ export const stationen: Station[] = [
     lng: 9.0283,
   },
   {
-    name: { de: 'Grotto die Pacifici', en: 'Grotto die Pacifici' },
+    name: { de: 'Ristorante Montebello', en: 'Ristorante Montebello' },
     zeit: { de: 'ca. 13:00', en: 'approx. 13:00' },
     unterzeile: { de: 'Mittagessen', en: 'Lunch' },
     text: [
       {
         de:
-          'Mittagspause im Grotto – die Tessiner Antwort auf den Berggasthof: ' +
-          'Steintische im Schatten, einfache Küche, kein Grund zur Eile.',
+          'Mittagspause im Ristorante Montebello: Spareribs und Pommes, ' +
+          'draussen an der Sonne – und keine Eile, der Nachmittag konnte warten.',
         en:
-          'Lunch at the grotto – Ticino’s answer to the mountain inn: stone ' +
-          'tables in the shade, simple food, no reason to hurry.',
+          'Lunch at Ristorante Montebello: spare ribs and chips, outside in ' +
+          'the sun – and no hurry; the afternoon could wait.',
       },
     ],
-    bild: 'grotto-rippli.jpg',
+    bild: 'mittag-rippli.jpg',
     bildnachweis: {
-      de: 'Spareribs im Grotto',
-      en: 'Spare ribs at the grotto',
+      de: 'Spareribs im Ristorante Montebello',
+      en: 'Spare ribs at Ristorante Montebello',
     },
   },
   {
@@ -506,7 +507,7 @@ export const galerie: Galeriebild[] = [
     },
   },
   {
-    datei: 'grotto-teller.jpg',
+    datei: 'mittag-teller.jpg',
     nachweis: {
       de: 'Der Teller, auf den alle gewartet haben',
       en: 'The plate everyone had been waiting for',
@@ -636,8 +637,8 @@ export const infoBloecke: Infoblock[] = [
           '(0.5 dl) per person, handed out at the meeting point in Baden.',
       },
       {
-        de: 'Mittagessen: ca. 13:00 Uhr im Grotto die Pacifici.',
-        en: 'Lunch: around 13:00 at Grotto die Pacifici.',
+        de: 'Mittagessen: ca. 13:00 Uhr im Ristorante Montebello.',
+        en: 'Lunch: around 13:00 at Ristorante Montebello.',
       },
       {
         de:
