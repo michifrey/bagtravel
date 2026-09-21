@@ -391,7 +391,11 @@ export const stationen: Station[] = [
           'view back over Bellinzona.',
       },
     ],
-    bild: '',
+    bild: 'aufstieg-wald.jpg',
+    bildnachweis: {
+      de: 'Der Aufstieg durch den Wald oberhalb der Stadt',
+      en: 'The climb through the woods above the town',
+    },
   },
   {
     name: { de: 'Castello di Sasso Corbaro', en: 'Castello di Sasso Corbaro' },
@@ -423,10 +427,10 @@ export const stationen: Station[] = [
           'defences.',
       },
     ],
-    bild: 'aufstieg-wald.jpg',
+    bild: 'magadinoebene.jpg',
     bildnachweis: {
-      de: 'Der Aufstieg durch den Wald oberhalb der Stadt',
-      en: 'The climb through the woods above the town',
+      de: 'Blick über die Magadinoebene Richtung Lago Maggiore',
+      en: 'Across the Magadino plain towards Lake Maggiore',
     },
     lat: 46.1856,
     lng: 9.0283,
@@ -463,7 +467,11 @@ export const stationen: Station[] = [
           'walls came later. From here the path leads back down to the start.',
       },
     ],
-    bild: '',
+    bild: 'felsenweg-stadt.jpg',
+    bildnachweis: {
+      de: 'Über den Felsen oberhalb der Altstadt',
+      en: 'Over the rocks above the old town',
+    },
     lat: 46.1912,
     lng: 9.0248,
   },
@@ -489,6 +497,20 @@ export const galerie: Galeriebild[] = [
     nachweis: {
       de: 'Der Wehrgang der Murata',
       en: 'The Murata rampart walk',
+    },
+  },
+  {
+    datei: 'zinnen-ausblick.jpg',
+    nachweis: {
+      de: 'Durch die Zinnen hinaus ins Tal',
+      en: 'Out through the battlements into the valley',
+    },
+  },
+  {
+    datei: 'pause-fasstische.jpg',
+    nachweis: {
+      de: 'Pause an den Fasstischen im Burghof',
+      en: 'A break at the barrel tables in the castle courtyard',
     },
   },
   {
