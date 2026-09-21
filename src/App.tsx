@@ -5,6 +5,7 @@ import Kontakte from './components/Kontakte'
 import Nav from './components/Nav'
 import Packliste from './components/Packliste'
 import Programm from './components/Programm'
+import Stationen from './components/Stationen'
 import Teilnehmende from './components/Teilnehmende'
 import Wanderung from './components/Wanderung'
 import { trip } from './data/trip'
@@ -17,6 +18,7 @@ export default function App() {
       <main className="inhalt">
         <Wanderung />
         <Programm />
+        <Stationen />
         <Karte />
         <Infos />
         <Packliste />

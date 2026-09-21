@@ -5,7 +5,7 @@ export default function Programm() {
   if (reisetage.length === 0) return null
 
   return (
-    <Section id="programm" titel="Programm">
+    <Section id="programm" nummer="02" titel="Programm">
       <ol className="tage">
         {reisetage.map((tag) => (
           <li key={tag.datum} className="tag">
@@ -13,7 +13,8 @@ export default function Programm() {
               <span className="tag__datum">{tag.datum}</span>
               <h3 className="tag__titel">{tag.titel}</h3>
             </div>
-            <ul className="punkte">
+
+            <ol className="zeitachse">
               {tag.programm.map((punkt, i) => (
                 <li key={`${punkt.titel}-${i}`} className="punkt">
                   <span className="punkt__zeit">{punkt.zeit}</span>
@@ -26,7 +27,7 @@ export default function Programm() {
                   </div>
                 </li>
               ))}
-            </ul>
+            </ol>
           </li>
         ))}
       </ol>

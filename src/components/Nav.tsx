@@ -3,6 +3,7 @@ import { kontakte, teilnehmende } from '../data/trip'
 const eintraege = [
   { id: 'wanderung', label: 'Wanderung' },
   { id: 'programm', label: 'Programm' },
+  { id: 'stationen', label: 'Stationen' },
   { id: 'karte', label: 'Karte' },
   { id: 'infos', label: 'Infos' },
   { id: 'packliste', label: 'Packliste' },
