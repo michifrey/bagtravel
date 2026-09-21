@@ -63,7 +63,9 @@ Ein Push auf `main` baut die Seite und veröffentlicht sie über GitHub Pages
 (`.github/workflows/deploy.yml`).
 
 Einmalig nötig: unter **Settings → Pages** die Source auf **GitHub Actions**
-stellen.
+stellen. Das muss von Hand passieren – der Workflow kann es nicht selbst tun,
+weil der Standard-`GITHUB_TOKEN` keine Rechte hat, eine Pages-Site anzulegen
+(`Resource not accessible by integration`).
 
 Der Pfad `/bagtravel/` ist in `vite.config.ts` als `base` gesetzt. Läuft die
 Seite später unter einer eigenen Domain, kann das über die Umgebungsvariable
