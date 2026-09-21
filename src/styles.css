@@ -73,7 +73,7 @@ a {
 
 /* Gemeinsames Spaltenmass */
 .hero__inner,
-.nav__list,
+.nav__inner,
 .inhalt,
 .hero__nachweis {
   margin-inline: auto;
@@ -262,10 +262,19 @@ a {
   backdrop-filter: blur(10px);
 }
 
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: 0.9rem;
+}
+
 .nav__list {
   display: flex;
+  flex: 1;
   gap: 1.75rem;
-  padding-block: 0.9rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
   overflow-x: auto;
   scrollbar-width: none;
@@ -846,5 +855,59 @@ a {
   /* Auf dem Handy steht das Bild immer oben – Spiegeln ergäbe keinen Sinn. */
   .station:nth-child(even) .station__medium {
     order: 0;
+  }
+}
+
+/* ==========================================================================
+   Sprachwahl
+   ========================================================================== */
+
+.sprachwahl {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1px;
+  padding: 2px;
+  border: 1px solid var(--linie);
+  border-radius: 999px;
+  background: var(--flaeche);
+}
+
+.sprachwahl__knopf {
+  padding: 0.3rem 0.7rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--tinte-leise);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sprachwahl__knopf:hover {
+  color: var(--terra);
+}
+
+.sprachwahl__knopf--aktiv {
+  background: var(--wald);
+  color: var(--papier);
+}
+
+/* Im Dunkelmodus ist --wald hell, die Schrift muss dann dunkel sein. */
+@media (prefers-color-scheme: dark) {
+  .sprachwahl__knopf--aktiv {
+    color: #14120f;
+  }
+}
+
+.sprachwahl__knopf--aktiv:hover {
+  color: var(--papier);
+}
+
+@media (prefers-color-scheme: dark) {
+  .sprachwahl__knopf--aktiv:hover {
+    color: #14120f;
   }
 }
